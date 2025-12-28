@@ -4,8 +4,8 @@
 const app = {
   // 애플리케이션 설정 값들을 정의하는 객체
   config: {
-    API_BASE_URL: "http://localhost:8081/api/posts", // 게시물 API의 기본 URL
-    GUID_API_URL: "http://localhost:8081/api/guid/generate", // GUID 생성 API의 URL
+    API_BASE_URL: "/api/posts", // 게시물 API의 기본 URL
+    GUID_API_URL: "/api/guid/generate", // GUID 생성 API의 URL
   },
 
   // 애플리케이션의 현재 상태를 저장하는 객체

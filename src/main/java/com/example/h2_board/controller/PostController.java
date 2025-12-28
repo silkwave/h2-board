@@ -62,9 +62,9 @@ public class PostController {
   @PostMapping
   public ResponseEntity<Post> createPost(@RequestBody Post post) {
     log.trace("Entering createPost with post: {}", post);
-    postService.save(post); // postService.save 호출
+    Post savedPost = postService.save(post); // Capture the returned Post
     log.trace("Exiting createPost");
-    return ResponseEntity.status(HttpStatus.CREATED).body(post); // 저장 후 업데이트된 post 객체 반환
+    return ResponseEntity.status(HttpStatus.CREATED).body(savedPost); // Return the savedPost
   }
 
   /**
@@ -82,9 +82,9 @@ public class PostController {
         .map(
             existingPost -> {
               post.setId(id);
-              postService.save(post); // postService.save 호출
+              Post updatedPost = postService.save(post); // Capture the returned Post
               log.trace("Exiting updatePost");
-              return ResponseEntity.ok(post); // 업데이트된 post 객체 반환
+              return ResponseEntity.ok(updatedPost); // Return the updatedPost
             })
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
