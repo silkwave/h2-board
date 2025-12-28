@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.5'
+	id 'org.springframework.boot' version '3.5.9'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -14,17 +14,20 @@ java {
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
 repositories {
 	mavenCentral()
 }
 
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+    googleJavaFormat // Declare a configuration for google-java-format
+}
+
 dependencies {
+    googleJavaFormat 'com.google.googlejavaformat:google-java-format:1.17.0'
+
 	implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -32,6 +35,26 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task formatJava(type: JavaExec) {
+    group = "formatting"
+    description = "Formats Java source files using google-java-format"
+    classpath = configurations.googleJavaFormat
+    mainClass = "com.google.googlejavaformat.java.Main"
+    
+    // JVM arguments to allow illegal access for google-java-format on newer JDKs
+    jvmArgs = [
+        '--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED'
+    ]
+
+    // Find all Java files and pass them as arguments
+    def javaFiles = fileTree('src/main/java') + fileTree('src/test/java')
+    args = ['--replace'] + javaFiles.filter { it.name.endsWith('.java') }.files.collect { it.absolutePath }
 }
 
 tasks.named('test') {
