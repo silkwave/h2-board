@@ -16,3 +16,4 @@ mybatis:
 logging:
   level:
     "[com.example.h2_board]": trace
+
