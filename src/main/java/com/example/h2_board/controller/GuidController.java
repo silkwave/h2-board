@@ -14,25 +14,25 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class GuidController {
 
-    private final GuidService guidService;
+  private final GuidService guidService;
 
-    /*
-     * GuidService를 주입받아 컨트롤러를 초기화합니다.
-     * @param guidService GUID 서비스를 제공하는 객체
-     */
-    public GuidController(GuidService guidService) {
-        this.guidService = guidService;
-    }
+  /*
+   * GuidService를 주입받아 컨트롤러를 초기화합니다.
+   * @param guidService GUID 서비스를 제공하는 객체
+   */
+  public GuidController(GuidService guidService) {
+    this.guidService = guidService;
+  }
 
-    /*
-     * 새로운 GUID를 생성하고 반환합니다.
-     * @return 생성된 GUID 문자열
-     */
-    @GetMapping("/generate")
-    public String generateGuid() {
-        log.trace("Entering generateGuid");
-        String guid = guidService.getGuid();
-        log.trace("Exiting generateGuid");
-        return guid;
-    }
+  /*
+   * 새로운 GUID를 생성하고 반환합니다.
+   * @return 생성된 GUID 문자열
+   */
+  @GetMapping("/generate")
+  public String generateGuid() {
+    log.trace("Entering generateGuid");
+    String guid = guidService.getGuid();
+    log.trace("Exiting generateGuid");
+    return guid;
+  }
 }
