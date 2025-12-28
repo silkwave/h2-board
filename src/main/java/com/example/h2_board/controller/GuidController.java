@@ -1,6 +1,7 @@
 package com.example.h2_board.controller;
 
 import com.example.h2_board.service.GuidService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/guid")
+@Slf4j
 public class GuidController {
 
     private final GuidService guidService;
@@ -28,7 +30,9 @@ public class GuidController {
      */
     @GetMapping("/generate")
     public String generateGuid() {
-        return guidService.getGuid();
+        log.trace("Entering generateGuid");
+        String guid = guidService.getGuid();
+        log.trace("Exiting generateGuid");
+        return guid;
     }
 }
-

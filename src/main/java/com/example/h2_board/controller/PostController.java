@@ -3,6 +3,7 @@ package com.example.h2_board.controller;
 import com.example.h2_board.entity.Post;
 import com.example.h2_board.mapper.PostMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.Optional;
 @RestController // 이 클래스가 REST 컨트롤러임을 나타냅니다.
 @RequestMapping("/api/posts") // 기본 URL 경로를 /api/posts로 설정
 @RequiredArgsConstructor
+@Slf4j
 public class PostController {
 
     private final PostMapper postMapper; // MyBatis 매퍼
@@ -27,7 +29,10 @@ public class PostController {
      */
     @GetMapping // GET /api/posts
     public List<Post> getAllPosts() {
-        return postMapper.findAll();
+        log.trace("Entering getAllPosts");
+        List<Post> posts = postMapper.findAll();
+        log.trace("Exiting getAllPosts with {} posts", posts.size());
+        return posts;
     }
 
     /**
@@ -37,7 +42,9 @@ public class PostController {
      */
     @GetMapping("/{id}") // GET /api/posts/{id}
     public ResponseEntity<Post> getPostById(@PathVariable Long id) {
+        log.trace("Entering getPostById with id: {}", id);
         Optional<Post> post = postMapper.findById(id);
+        log.trace("Exiting getPostById");
         return post.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -49,7 +56,9 @@ public class PostController {
      */
     @PostMapping // POST /api/posts
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
+        log.trace("Entering createPost with post: {}", post);
         postMapper.save(post);
+        log.trace("Exiting createPost");
         return ResponseEntity.status(HttpStatus.CREATED).body(post);
     }
 
@@ -61,11 +70,14 @@ public class PostController {
      */
     @PutMapping("/{id}") // PUT /api/posts/{id}
     public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post post) {
+        log.trace("Entering updatePost with id: {} and post: {}", id, post);
         if (postMapper.findById(id).isEmpty()) {
+            log.warn("Post not found for id: {}", id);
             return ResponseEntity.notFound().build();
         }
         post.setId(id); // URL 경로의 ID를 Post 객체에 설정
         postMapper.update(post);
+        log.trace("Exiting updatePost");
         return ResponseEntity.ok(post);
     }
 
@@ -76,10 +88,13 @@ public class PostController {
      */
     @DeleteMapping("/{id}") // DELETE /api/posts/{id}
     public ResponseEntity<Void> deletePost(@PathVariable Long id) {
+        log.trace("Entering deletePost with id: {}", id);
         if (postMapper.findById(id).isEmpty()) {
+            log.warn("Post not found for id: {}", id);
             return ResponseEntity.notFound().build();
         }
         postMapper.deleteById(id);
+        log.trace("Exiting deletePost");
         return ResponseEntity.noContent().build();
     }
 }

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.915s</div>
+<div class="counter">0.790s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,7 +82,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.915s</td>
+<td class="success">0.790s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,8 +90,8 @@
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>19:48:54.855 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.h2_board.H2BoardApplicationTests]: H2BoardApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-19:48:54.962 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.h2_board.H2BoardApplication for test class com.example.h2_board.H2BoardApplicationTests
+<pre>17:45:14.215 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.h2_board.H2BoardApplicationTests]: H2BoardApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:45:14.314 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.h2_board.H2BoardApplication for test class com.example.h2_board.H2BoardApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -101,15 +101,20 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2025-12-22T19:48:55.443+09:00  INFO 69250 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Starting H2BoardApplicationTests using Java 21.0.9 with PID 69250 (started by silkw in /home/silkw/apps/h2/h2-board)
-2025-12-22T19:48:55.445+09:00  INFO 69250 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : No active profile set, falling back to 1 default profile: &quot;default&quot;
-100개의 GUID가 큐에 채워졌습니다.
-2025-12-22T19:48:56.521+09:00  INFO 69250 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-22T19:48:56.695+09:00  INFO 69250 --- [h2-board] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-12-22T19:48:56.697+09:00  INFO 69250 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-22T19:48:57.114+09:00  INFO 69250 --- [h2-board] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2025-12-22T19:48:57.386+09:00  INFO 69250 --- [h2-board] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-12-22T19:48:57.465+09:00  INFO 69250 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Started H2BoardApplicationTests in 2.34 seconds (process running for 3.639)
+2025-12-28T17:45:14.817+09:00  INFO 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Starting H2BoardApplicationTests using Java 21.0.9 with PID 16145 (started by silkw in /home/silkw/apps/h2/h2-board)
+2025-12-28T17:45:14.819+09:00 DEBUG 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-12-28T17:45:14.820+09:00  INFO 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-12-28T17:45:18.616+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Initializing GUID Service
+2025-12-28T17:45:18.617+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Entering populateGuidQueue with count: 100
+2025-12-28T17:45:18.621+09:00  INFO 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : 100개의 GUID가 큐에 채워졌습니다.
+2025-12-28T17:45:18.621+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Exiting populateGuidQueue
+2025-12-28T17:45:18.621+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Finished initializing GUID Service
+2025-12-28T17:45:18.688+09:00  INFO 16145 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-28T17:45:18.826+09:00  INFO 16145 --- [h2-board] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-12-28T17:45:18.828+09:00  INFO 16145 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-28T17:45:19.187+09:00  INFO 16145 --- [h2-board] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-12-28T17:45:19.444+09:00  INFO 16145 --- [h2-board] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-12-28T17:45:19.518+09:00  INFO 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Started H2BoardApplicationTests in 5.047 seconds (process running for 3.286)
 </pre>
 </span>
 </div>
@@ -131,7 +136,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14</a> at 2025. 12. 22. 오후 7:48:58</p>
+<a href="https://www.gradle.org">Gradle 8.14</a> at 2025. 12. 28. 오후 5:45:20</p>
 </div>
 </div>
 </body>

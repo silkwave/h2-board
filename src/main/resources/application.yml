@@ -12,3 +12,7 @@ spring:
     password: ""
 mybatis:
   mapper-locations: mappers/**/*.xml
+
+logging:
+  level:
+    com.example.h2_board: trace
