@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.h2_board.H2BoardApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-12-28T08:45:19.534Z" hostname="DESKTOP-QTL0LHD" time="0.79">
+<testsuite name="com.example.h2_board.H2BoardApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-12-28T09:41:45.949Z" hostname="DESKTOP-QTL0LHD" time="0.777">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.h2_board.H2BoardApplicationTests" time="0.79"/>
-  <system-out><![CDATA[17:45:14.215 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.h2_board.H2BoardApplicationTests]: H2BoardApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:45:14.314 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.h2_board.H2BoardApplication for test class com.example.h2_board.H2BoardApplicationTests
+  <testcase name="contextLoads()" classname="com.example.h2_board.H2BoardApplicationTests" time="0.777"/>
+  <system-out><![CDATA[18:41:43.131 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.h2_board.H2BoardApplicationTests]: H2BoardApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:41:43.265 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.h2_board.H2BoardApplication for test class com.example.h2_board.H2BoardApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -11,24 +11,26 @@
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
 
-2025-12-28T17:45:14.817+09:00  INFO 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Starting H2BoardApplicationTests using Java 21.0.9 with PID 16145 (started by silkw in /home/silkw/apps/h2/h2-board)
-2025-12-28T17:45:14.819+09:00 DEBUG 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Running with Spring Boot v3.2.5, Spring v6.1.6
-2025-12-28T17:45:14.820+09:00  INFO 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : No active profile set, falling back to 1 default profile: "default"
-2025-12-28T17:45:18.616+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Initializing GUID Service
-2025-12-28T17:45:18.617+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Entering populateGuidQueue with count: 100
-2025-12-28T17:45:18.621+09:00  INFO 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : 100개의 GUID가 큐에 채워졌습니다.
-2025-12-28T17:45:18.621+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Exiting populateGuidQueue
-2025-12-28T17:45:18.621+09:00 TRACE 16145 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Finished initializing GUID Service
-2025-12-28T17:45:18.688+09:00  INFO 16145 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-28T17:45:18.826+09:00  INFO 16145 --- [h2-board] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-12-28T17:45:18.828+09:00  INFO 16145 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-28T17:45:19.187+09:00  INFO 16145 --- [h2-board] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2025-12-28T17:45:19.444+09:00  INFO 16145 --- [h2-board] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-12-28T17:45:19.518+09:00  INFO 16145 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Started H2BoardApplicationTests in 5.047 seconds (process running for 3.286)
+ :: Spring Boot ::                (v3.5.9)
+
+2025-12-28T18:41:43.905+09:00  INFO 53699 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Starting H2BoardApplicationTests using Java 21.0.9 with PID 53699 (started by silkw in /home/silkw/apps/h2/h2-board)
+2025-12-28T18:41:43.907+09:00 DEBUG 53699 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Running with Spring Boot v3.5.9, Spring v6.2.15
+2025-12-28T18:41:43.908+09:00  INFO 53699 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T18:41:44.951+09:00 TRACE 53699 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Initializing GUID Service
+2025-12-28T18:41:44.952+09:00 TRACE 53699 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Entering populateGuidQueue with count: 100
+2025-12-28T18:41:44.957+09:00  INFO 53699 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : 100개의 GUID가 큐에 채워졌습니다.
+2025-12-28T18:41:44.957+09:00 TRACE 53699 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Exiting populateGuidQueue
+2025-12-28T18:41:44.957+09:00 TRACE 53699 --- [h2-board] [    Test worker] c.example.h2_board.service.GuidService   : Finished initializing GUID Service
+2025-12-28T18:41:45.018+09:00  INFO 53699 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-28T18:41:45.187+09:00  INFO 53699 --- [h2-board] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-12-28T18:41:45.191+09:00  INFO 53699 --- [h2-board] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-28T18:41:45.590+09:00  INFO 53699 --- [h2-board] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-12-28T18:41:45.843+09:00  INFO 53699 --- [h2-board] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-12-28T18:41:45.928+09:00  INFO 53699 --- [h2-board] [    Test worker] c.e.h2_board.H2BoardApplicationTests     : Started H2BoardApplicationTests in 2.404 seconds (process running for 3.918)
 ]]></system-out>
-  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/silkw/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.13/979ce25f7d3096a2e82214ba7dc972a05ce7a171/byte-buddy-agent-1.14.13.jar)
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/silkw/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.8/f09415827a71be7ed621c7bd02550678f28bc81c/byte-buddy-agent-1.17.8.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
 WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
