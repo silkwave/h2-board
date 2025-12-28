@@ -45,7 +45,7 @@ public class PostController {
    * @return 특정 ID의 게시물 (JSON 형태), 없으면 404 Not Found
    */
   @GetMapping("/{id}")
-  public ResponseEntity<Post> getPostById(@PathVariable Long id) {
+  public ResponseEntity<Post> getPostById(@PathVariable("id") Long id) {
     log.trace("Entering getPostById with id: {}", id);
     return postService // postService 사용
         .findById(id)
@@ -75,7 +75,7 @@ public class PostController {
    * @return 업데이트된 게시물 정보, 없으면 404 Not Found
    */
   @PutMapping("/{id}")
-  public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post post) {
+  public ResponseEntity<Post> updatePost(@PathVariable("id") Long id, @RequestBody Post post) {
     log.trace("Entering updatePost with id: {} and post: {}", id, post);
     return postService // postService 사용
         .findById(id)
@@ -96,7 +96,7 @@ public class PostController {
    * @return 204 No Content 상태 코드, 없으면 404 Not Found
    */
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> deletePost(@PathVariable Long id) {
+  public ResponseEntity<Void> deletePost(@PathVariable("id") Long id) {
     log.trace("Entering deletePost with id: {}", id);
     return postService // postService 사용
         .findById(id)

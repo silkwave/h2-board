@@ -1,5 +1,3 @@
-server:
-  port: 8080
 spring:
   application:
     name: h2-board
@@ -17,5 +15,4 @@ mybatis:
 
 logging:
   level:
-    "[com.example.h2_board]": trace
-
+    com.example.h2_board: trace
