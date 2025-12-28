@@ -1,6 +1,0 @@
--- 게시물 테이블 생성
-CREATE TABLE post (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content VARCHAR(255) NOT NULL
-);
