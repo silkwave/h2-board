@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+/build/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.lock
+/bin/
+
+# Maven (if applicable, though using Gradle)
+/target/
+
+# IDE-specific files
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Spring Boot AOT (if applicable)
+/generated/
