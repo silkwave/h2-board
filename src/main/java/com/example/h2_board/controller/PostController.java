@@ -1,6 +1,8 @@
 package com.example.h2_board.controller;
 
+import com.example.h2_board.entity.Comment;
 import com.example.h2_board.entity.Post;
+import com.example.h2_board.service.CommentService;
 import com.example.h2_board.service.PostService; // PostService import
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostController {
 
   private final PostService postService; // PostService 주입
+  private final CommentService commentService; // CommentService 주입
 
   /**
    * 모든 게시물 목록을 조회합니다.
@@ -106,6 +109,42 @@ public class PostController {
               log.trace("Exiting deletePost");
               return ResponseEntity.noContent().<Void>build();
             })
+        .orElseGet(() -> ResponseEntity.notFound().build());
+  }
+
+  // --- 댓글 관련 API ---
+
+  /**
+   * 특정 게시물의 모든 댓글을 조회합니다.
+   * @param postId 게시물 ID
+   * @return 댓글 목록
+   */
+  @GetMapping("/{postId}/comments")
+  public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable("postId") Long postId) {
+    // 먼저 게시물이 존재하는지 확인
+    return postService.findById(postId)
+        .map(post -> {
+          List<Comment> comments = commentService.getCommentsByPostId(postId);
+          return ResponseEntity.ok(comments);
+        })
+        .orElseGet(() -> ResponseEntity.notFound().build());
+  }
+
+  /**
+   * 특정 게시물에 새로운 댓글을 추가합니다.
+   * @param postId 게시물 ID
+   * @param comment 추가할 댓글 정보
+   * @return 생성된 댓글 정보
+   */
+  @PostMapping("/{postId}/comments")
+  public ResponseEntity<Comment> createComment(@PathVariable("postId") Long postId, @RequestBody Comment comment) {
+    // 먼저 게시물이 존재하는지 확인
+    return postService.findById(postId)
+        .map(post -> {
+          comment.setPostId(postId);
+          Comment createdComment = commentService.createComment(comment);
+          return ResponseEntity.status(HttpStatus.CREATED).body(createdComment);
+        })
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
 }

@@ -58,6 +58,19 @@
                 <button type="button" class="action-btn cancel-btn" id="cancelEditBtn">취소</button>
                 <button type="button" class="action-btn delete-btn" id="deletePostBtn">삭제</button>
             </form>
+
+            <!-- 댓글 섹션 -->
+            <div id="comment-section">
+                <h3>댓글</h3>
+                <div id="comment-list">
+                    <!-- 댓글 목록이 여기에 동적으로 추가됩니다 -->
+                </div>
+                <form id="comment-form">
+                    <textarea id="comment-content" placeholder="댓글을 입력하세요..." required></textarea>
+                    <button type="submit" class="action-btn">댓글 작성</button>
+                </form>
+            </div>
+
         </section>
     </div>
 
@@ -74,6 +87,6 @@
     </div>
 
     <!-- Custom JavaScript -->
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
