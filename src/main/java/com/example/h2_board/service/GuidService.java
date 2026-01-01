@@ -7,7 +7,7 @@ package com.example.h2_board.service;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService; // 변경: ScheduledExecutorService -> ExecutorService
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -20,13 +20,12 @@ public class GuidService {
 
     // GUID 큐 관련 설정값 (하드코딩된 상수)
     private static final int QUEUE_CAPACITY = 100;
-    // REFILL_THRESHOLD, REFILL_AMOUNT, REFILL_DELAY_SECONDS는 무한 생성 시 더 이상 사용되지 않음
 
     // GUID를 저장할 LinkedBlockingQueue.
     private final LinkedBlockingQueue<UUID> guidQueue;
 
     // GUID 생성을 백그라운드에서 처리할 ExecutorService
-    private ExecutorService producerExecutor; // 변경: scheduler -> producerExecutor
+    private ExecutorService producerExecutor;
 
     // 생성자에서 guidQueue를 초기화합니다.
     public GuidService() {
